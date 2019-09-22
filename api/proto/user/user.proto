@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package com.txvier.srv.user;
+
+service User {
+    //say hello
+	rpc Hello(Request) returns (Response) {}
+    // 新增用户
+	rpc CreateUser(CreateUserRequest) returns (CreateUserResponse) {}
+}
+
+message CreateUserRequest {
+	string name = 1;
+    string pwd = 2;
+    string tel = 3;
+    string email = 4;
+}
+
+message CreateUserResponse {
+	int64 affected = 1;
+}
+
+message Request {
+	string name = 1;
+}
+
+message Response {
+	string msg = 1;
+}
